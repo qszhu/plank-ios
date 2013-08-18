@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		669C6185D1C14D882A55528D /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 669C6197EA446B6CC62A61D2 /* Utils.m */; };
 		669C62B32394DE7C06F4902A /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 669C68F3D052C52B82EB5154 /* second@2x.png */; };
 		669C63FBD2A89272FEB6A624 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 669C6F7BB1CCCA11A880D48E /* main.m */; };
 		669C641C3638DE13A56E51A8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 669C6BC47F84B450D2365B57 /* Default.png */; };
 		669C644BEF44268DBD70FF24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 669C67218ED9C68454704265 /* AppDelegate.m */; };
+		669C644C913EAE9B34F9AD0D /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = 669C614FDADC70C1424F5B54 /* History.m */; };
 		669C651F2E664DDF0A779994 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 669C67CFFB535FF875880DD7 /* first@2x.png */; };
 		669C67F03581D54B16A4F583 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669C65208C240A7B6D880517 /* Foundation.framework */; };
 		669C67FFB0F62839BBB7AFC5 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 669C6D401A7CBAFE8EC48EE4 /* first.png */; };
@@ -24,13 +26,18 @@
 		669C6E05A023E0CFC5CF3002 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 669C6BEFA3796F926DAD47B6 /* second.png */; };
 		669C6E15F70BF6AD6EFD599F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669C6F06839B1EF2817D6337 /* UIKit.framework */; };
 		669C6EB6895D9620098FCFEF /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669C6223366E799D6317C5B4 /* TimerView.xib */; };
+		669C6F1A9AF58596DD781272 /* HistoryList.m in Sources */ = {isa = PBXBuildFile; fileRef = 669C6466BAC8EDF944F0E6F3 /* HistoryList.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		669C614FDADC70C1424F5B54 /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
 		669C61605667738527AC32C1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		669C6197EA446B6CC62A61D2 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
 		669C6223366E799D6317C5B4 /* TimerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TimerView.xib; sourceTree = "<group>"; };
 		669C62358B56FC3976CEA9EA /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		669C62BBB04ED0CDCA0956E4 /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
 		669C6446C4510C70206A53ED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		669C6466BAC8EDF944F0E6F3 /* HistoryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryList.m; sourceTree = "<group>"; };
 		669C65208C240A7B6D880517 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		669C65DF443CD9F0E9A22750 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		669C67218ED9C68454704265 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,6 +54,8 @@
 		669C6C6467C59DAAA7566946 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
 		669C6D401A7CBAFE8EC48EE4 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		669C6DDF724E38D9898B5F81 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		669C6E111315E236961A1FC8 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		669C6EA0A66C97E687FE5759 /* HistoryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryList.h; sourceTree = "<group>"; };
 		669C6EC9A28D4AF791946710 /* Plank-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Plank-Prefix.pch"; sourceTree = "<group>"; };
 		669C6F06839B1EF2817D6337 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		669C6F7BB1CCCA11A880D48E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +107,12 @@
 				669C679917EA8BAE072ED7D0 /* TimerViewController.m */,
 				669C62358B56FC3976CEA9EA /* TimerViewController.h */,
 				669C6223366E799D6317C5B4 /* TimerView.xib */,
+				669C614FDADC70C1424F5B54 /* History.m */,
+				669C62BBB04ED0CDCA0956E4 /* History.h */,
+				669C6466BAC8EDF944F0E6F3 /* HistoryList.m */,
+				669C6EA0A66C97E687FE5759 /* HistoryList.h */,
+				669C6197EA446B6CC62A61D2 /* Utils.m */,
+				669C6E111315E236961A1FC8 /* Utils.h */,
 			);
 			path = Plank;
 			sourceTree = "<group>";
@@ -203,6 +218,9 @@
 				669C6D5297CC98E99AF9A758 /* MainViewController.m in Sources */,
 				669C6CDD3D168BB6C1FC4E92 /* HistoryViewController.m in Sources */,
 				669C6A9135AB4278EC35143F /* TimerViewController.m in Sources */,
+				669C644C913EAE9B34F9AD0D /* History.m in Sources */,
+				669C6F1A9AF58596DD781272 /* HistoryList.m in Sources */,
+				669C6185D1C14D882A55528D /* Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

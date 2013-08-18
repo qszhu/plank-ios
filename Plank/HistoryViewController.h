@@ -7,5 +7,5 @@
 #import <Foundation/Foundation.h>
 
 
-@interface HistoryViewController : UIViewController
+@interface HistoryViewController : UITableViewController
 @end

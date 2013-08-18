@@ -16,15 +16,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     TimerViewController *timerVC = [[TimerViewController alloc] init];
-    timerVC.tabBarItem.title = @"Timer";
-    timerVC.tabBarItem.image = [UIImage imageNamed:@"first"];
+    UINavigationController *timerNav = [[UINavigationController alloc] initWithRootViewController:timerVC];
+    timerNav.tabBarItem.title = @"Timer";
+    timerNav.tabBarItem.image = [UIImage imageNamed:@"first"];
 
     HistoryViewController *historyVC = [[HistoryViewController alloc] init];
-    historyVC.tabBarItem.title = @"History";
-    historyVC.tabBarItem.image = [UIImage imageNamed:@"second"];
+    UINavigationController *historyNav = [[UINavigationController alloc] initWithRootViewController:historyVC];
+    historyNav.tabBarItem.title = @"History";
+    historyNav.tabBarItem.image = [UIImage imageNamed:@"second"];
 
     MainViewController *mainVC = [[MainViewController alloc] init];
-    [mainVC setViewControllers:@[timerVC, historyVC] animated:NO];
+    [mainVC setViewControllers:@[timerNav, historyNav] animated:NO];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = mainVC;
