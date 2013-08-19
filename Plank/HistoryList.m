@@ -5,6 +5,7 @@
 
 
 #import "HistoryList.h"
+#import "Utils.h"
 
 static NSString *const kHistory = @"history";
 static NSString *const kModelPath = @"history.model";
@@ -25,8 +26,8 @@ static NSString *const kModelPath = @"history.model";
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
-    self = [super init];
-    if (self != nil) {
+    self = [self init];
+    if (self) {
         self.history = [coder decodeObjectForKey:kHistory];
     }
     return self;
@@ -51,18 +52,12 @@ static NSString *const kModelPath = @"history.model";
     self.history = [NSArray arrayWithArray:array];
 }
 
-+ (NSString *)getPathToArchive {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docsDir = [paths objectAtIndex:0];
-    return [docsDir stringByAppendingPathComponent:kModelPath];
-}
-
 + (void)saveHistoryList:(HistoryList *)historyList {
-    [NSKeyedArchiver archiveRootObject:historyList toFile:[HistoryList getPathToArchive]];
+    [NSKeyedArchiver archiveRootObject:historyList toFile:[Utils getPathToArchive:kModelPath]];
 }
 
-+ (HistoryList *)getHistoryList {
-    HistoryList *historyList = [NSKeyedUnarchiver unarchiveObjectWithFile:[HistoryList getPathToArchive]];
++ (HistoryList *)loadHistoryList {
+    HistoryList *historyList = [NSKeyedUnarchiver unarchiveObjectWithFile:[Utils getPathToArchive:kModelPath]];
     if (historyList == nil) {
         historyList = [[HistoryList alloc] init];
     }

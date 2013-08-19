@@ -18,6 +18,6 @@
 
 + (void)saveHistoryList:(HistoryList *)historyList;
 
-+ (HistoryList *)getHistoryList;
++ (HistoryList *)loadHistoryList;
 
 @end

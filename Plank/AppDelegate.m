@@ -11,6 +11,11 @@
 #import "MainViewController.h"
 #import "HistoryViewController.h"
 #import "TimerViewController.h"
+#import "SettingViewController.h"
+
+@interface AppDelegate ()
+@property(strong, nonatomic) MainViewController *mainVC;
+@end
 
 @implementation AppDelegate
 
@@ -25,14 +30,23 @@
     historyNav.tabBarItem.title = @"History";
     historyNav.tabBarItem.image = [UIImage imageNamed:@"second"];
 
-    MainViewController *mainVC = [[MainViewController alloc] init];
-    [mainVC setViewControllers:@[timerNav, historyNav] animated:NO];
+    SettingViewController *settingVC = [[SettingViewController alloc] init];
+    UINavigationController *settingNav = [[UINavigationController alloc] initWithRootViewController:settingVC];
+    settingNav.tabBarItem.title = @"Setting";
+    settingNav.tabBarItem.image = [UIImage imageNamed:@"first"];
+
+    self.mainVC = [[MainViewController alloc] init];
+    [self.mainVC setViewControllers:@[timerNav, historyNav, settingNav] animated:NO];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = mainVC;
+    self.window.rootViewController = self.mainVC;
     [self.window makeKeyAndVisible];
     return YES;
 }
 
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSLog(@"received local notification");
+    [self.mainVC setSelectedIndex:0];
+}
 
 @end

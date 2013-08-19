@@ -13,6 +13,11 @@ static NSString *const kDuration = @"duration";
 
 }
 
+- (id)init {
+    self = [self initWithDuration:0];
+    return self;
+}
+
 - (id)initWithDuration:(NSInteger)duration {
     self = [super init];
     if (self) {
@@ -23,7 +28,7 @@ static NSString *const kDuration = @"duration";
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
-    self = [super init];
+    self = [self init];
     if (self) {
         self.date = [coder decodeObjectForKey:kDate];
         self.duration = [coder decodeIntegerForKey:kDuration];

@@ -21,7 +21,7 @@
     [super viewWillAppear:animated];
 
     [self setTitle:@"History"];
-    self.historyList = [HistoryList getHistoryList];
+    self.historyList = [HistoryList loadHistoryList];
     [self.tableView reloadData];
 }
 

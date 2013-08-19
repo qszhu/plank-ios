@@ -18,11 +18,12 @@
 
 @implementation TimerViewController {
 }
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
     [self setTitle:@"Timer"];
-    self.historyList = [HistoryList getHistoryList];
+    self.historyList = [HistoryList loadHistoryList];
     self.elapsedMilliSeconds = 0;
     self.isTimerRunning = NO;
 }

@@ -8,6 +8,10 @@
 
 
 @interface Utils : NSObject
++ (void)scheduleLocalNotificationAt:(NSDate *)date alert:(NSString *)alert;
+
++ (NSString *)getPathToArchive:(NSString *)path;
+
 + (NSString *)formatDuration:(NSInteger)duration;
 
 + (NSString *)formatDate:(NSDate *)date;
