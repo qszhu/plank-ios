@@ -12,6 +12,7 @@
 #import "HistoryViewController.h"
 #import "TimerViewController.h"
 #import "SettingViewController.h"
+#import "TestFlight.h"
 
 @interface AppDelegate ()
 @property(strong, nonatomic) MainViewController *mainVC;
@@ -20,6 +21,9 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    [TestFlight takeOff:@"a8e05f04-c678-41c3-ad61-ee44cfe62431"];
+
     TimerViewController *timerVC = [[TimerViewController alloc] init];
     UINavigationController *timerNav = [[UINavigationController alloc] initWithRootViewController:timerVC];
     timerNav.tabBarItem.title = @"Timer";

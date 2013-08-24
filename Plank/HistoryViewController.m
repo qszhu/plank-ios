@@ -8,6 +8,7 @@
 #import "HistoryList.h"
 #import "History.h"
 #import "Utils.h"
+#import "TestFlight.h"
 
 @interface HistoryViewController ()
 @property(strong, nonatomic) HistoryList *historyList;
@@ -15,6 +16,11 @@
 
 @implementation HistoryViewController {
 
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [TestFlight passCheckpoint:@"history view did appear"];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

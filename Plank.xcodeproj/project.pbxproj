@@ -61,6 +61,10 @@
 		669C6E8841F142B14D86A1A6 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 669C63375056143BB67D0EA9 /* AbstractActionSheetPicker.m */; };
 		669C6EB6895D9620098FCFEF /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669C6223366E799D6317C5B4 /* TimerView.xib */; };
 		669C6F8C102DBE420A73904D /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 669C60E81C95F92859829012 /* ActionSheetDatePicker.m */; };
+		AC46F4D517C8939B00988C9E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC46F4CF17C8939B00988C9E /* libTestFlight.a */; };
+		AC46F4D617C8939B00988C9E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AC46F4D017C8939B00988C9E /* README.md */; };
+		AC46F4D717C8939B00988C9E /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = AC46F4D117C8939B00988C9E /* release_notes.md */; };
+		AC46F4D917C8982100988C9E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC46F4D817C8982100988C9E /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +173,13 @@
 		669C6FC4AEF4CFB525737F3D /* BWLongTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWLongTextViewController.h; sourceTree = "<group>"; };
 		669C6FCFC6E4A67FBE4B6919 /* FKFormAttributeMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FKFormAttributeMapping.h; sourceTree = "<group>"; };
 		669C6FD284D3B0BD80D3F217 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC46F4CF17C8939B00988C9E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		AC46F4D017C8939B00988C9E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		AC46F4D117C8939B00988C9E /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		AC46F4D217C8939B00988C9E /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		AC46F4D317C8939B00988C9E /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		AC46F4D417C8939B00988C9E /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		AC46F4D817C8982100988C9E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,9 +187,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC46F4D917C8982100988C9E /* libz.dylib in Frameworks */,
 				669C6E15F70BF6AD6EFD599F /* UIKit.framework in Frameworks */,
 				669C67F03581D54B16A4F583 /* Foundation.framework in Frameworks */,
 				669C6B436D39320CD90E1A5B /* CoreGraphics.framework in Frameworks */,
+				AC46F4D517C8939B00988C9E /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +344,8 @@
 		669C683AA28E66FAC19625D0 = {
 			isa = PBXGroup;
 			children = (
+				AC46F4D817C8982100988C9E /* libz.dylib */,
+				AC46F4CE17C8939B00988C9E /* TestFlightSDK2.0.0 */,
 				669C654A2B7AF50C4FDFCD21 /* Products */,
 				669C6C9F6311837A7A77E784 /* Frameworks */,
 				669C64D80AC4E086A22A2D11 /* Plank */,
@@ -374,6 +389,19 @@
 				669C6CA18A00327342292896 /* NSObject+FKFormAttributeMapping.m */,
 			);
 			path = FormKit;
+			sourceTree = "<group>";
+		};
+		AC46F4CE17C8939B00988C9E /* TestFlightSDK2.0.0 */ = {
+			isa = PBXGroup;
+			children = (
+				AC46F4CF17C8939B00988C9E /* libTestFlight.a */,
+				AC46F4D017C8939B00988C9E /* README.md */,
+				AC46F4D117C8939B00988C9E /* release_notes.md */,
+				AC46F4D217C8939B00988C9E /* TestFlight+AsyncLogging.h */,
+				AC46F4D317C8939B00988C9E /* TestFlight+ManualSessions.h */,
+				AC46F4D417C8939B00988C9E /* TestFlight.h */,
+			);
+			path = TestFlightSDK2.0.0;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +463,8 @@
 				669C62B32394DE7C06F4902A /* second@2x.png in Resources */,
 				669C6E05A023E0CFC5CF3002 /* second.png in Resources */,
 				669C6EB6895D9620098FCFEF /* TimerView.xib in Resources */,
+				AC46F4D617C8939B00988C9E /* README.md in Resources */,
+				AC46F4D717C8939B00988C9E /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,10 +562,19 @@
 		669C6388ED48EAF0769A10CF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Plank/Plank-Prefix.pch";
 				INFOPLIST_FILE = "Plank/Plank-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -577,6 +616,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Plank/Plank-Prefix.pch";
 				INFOPLIST_FILE = "Plank/Plank-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK2.0.0\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -601,6 +645,7 @@
 				669C6C4997A17F15D78B4019 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

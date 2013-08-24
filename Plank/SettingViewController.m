@@ -8,7 +8,7 @@
 #import "FKFormModel.h"
 #import "Setting.h"
 #import "FKFormMapping.h"
-
+#import "TestFlight.h"
 
 @implementation SettingViewController {
 
@@ -17,6 +17,11 @@
 - (id)init {
     self = [super initWithStyle:UITableViewStyleGrouped];
     return self;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [TestFlight passCheckpoint:@"setting view did appear"];
 }
 
 - (void)viewDidLoad {
