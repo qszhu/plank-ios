@@ -9,6 +9,7 @@
 #import "History.h"
 #import "Utils.h"
 #import "TestFlight.h"
+#import "Setting.h"
 
 @interface HistoryViewController ()
 @property(strong, nonatomic) HistoryList *historyList;
@@ -20,7 +21,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [TestFlight passCheckpoint:@"history view did appear"];
+
+    if ([Setting sendUsage]) {
+        [TestFlight passCheckpoint:@"history view did appear"];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

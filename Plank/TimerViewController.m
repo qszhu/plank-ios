@@ -9,6 +9,7 @@
 #import "HistoryList.h"
 #import "History.h"
 #import "TestFlight.h"
+#import "Setting.h"
 
 @interface TimerViewController ()
 @property(nonatomic) NSUInteger elapsedMilliSeconds;
@@ -23,7 +24,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [TestFlight passCheckpoint:@"timer view did appear"];
+
+    if ([Setting sendUsage]) {
+        [TestFlight passCheckpoint:@"timer view did appear"];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,19 +56,22 @@
     NSLog(@"%s proximityState=%d", __FUNCTION__, close);
     if (close) {
         if (self.isTimerRunning) {
-            [TestFlight passCheckpoint:@"censor stop timer"];
-
+            if ([Setting sendUsage]) {
+                [TestFlight passCheckpoint:@"censor stop timer"];
+            }
             self.isTimerRunning = NO;
             self.isTimerReady = NO;
             [self stopTimer];
         } else {
-            [TestFlight passCheckpoint:@"censor timer ready"];
-
+            if ([Setting sendUsage]) {
+                [TestFlight passCheckpoint:@"censor timer ready"];
+            }
             self.isTimerReady = YES;
         }
     } else if (self.isTimerReady && !self.isTimerRunning) {
-        [TestFlight passCheckpoint:@"censor start timer"];
-
+        if ([Setting sendUsage]) {
+            [TestFlight passCheckpoint:@"censor start timer"];
+        }
         self.isTimerRunning = YES;
         [self startTimer];
     }
@@ -94,8 +101,9 @@
 }
 
 - (IBAction)timerButtonPressed:(id)sender {
-    [TestFlight passCheckpoint:@"timer button pressed"];
-
+    if ([Setting sendUsage]) {
+        [TestFlight passCheckpoint:@"timer button pressed"];
+    }
     self.isTimerRunning = !self.isTimerRunning;
     NSString *title = self.isTimerRunning ? @"Stop" : @"Start";
     [self.timerButton setTitle:title forState:UIControlStateNormal];

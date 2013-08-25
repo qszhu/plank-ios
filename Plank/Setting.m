@@ -9,10 +9,26 @@
 
 static NSString *const kIsNotificationOn = @"is_notification_on";
 static NSString *const kNotificationTime = @"notification_time";
+static NSString *const kSendUsage = @"send_usage";
 static NSString *const kModelPath = @"model.setting";
 
 @implementation Setting {
 
+}
+
+static Setting *gInstance = nil;
+
++ (Setting *)instance {
+    @synchronized(self) {
+        if (gInstance == nil) {
+            gInstance = [self loadSetting];
+        }
+    }
+    return gInstance;
+}
+
++ (BOOL)sendUsage {
+    return [Setting instance].sendUsage;
 }
 
 - (id)init {
@@ -20,6 +36,7 @@ static NSString *const kModelPath = @"model.setting";
     if (self) {
         self.isNotificationOn = NO;
         self.notificationTime = [NSDate date];
+        self.sendUsage = NO;
     }
     return self;
 }
@@ -29,6 +46,7 @@ static NSString *const kModelPath = @"model.setting";
     if (self) {
         self.isNotificationOn = [coder decodeBoolForKey:kIsNotificationOn];
         self.notificationTime = [coder decodeObjectForKey:kNotificationTime];
+        self.sendUsage = [coder decodeBoolForKey:kSendUsage];
     }
     return self;
 }
@@ -36,6 +54,7 @@ static NSString *const kModelPath = @"model.setting";
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeBool:self.isNotificationOn forKey:kIsNotificationOn];
     [coder encodeObject:self.notificationTime forKey:kNotificationTime];
+    [coder encodeBool:self.sendUsage forKey:kSendUsage];
 }
 
 + (void)saveSetting:(Setting *)setting {
@@ -47,6 +66,7 @@ static NSString *const kModelPath = @"model.setting";
         [[UIApplication sharedApplication] cancelAllLocalNotifications];
         NSLog(@"cancel all notifications");
     }
+    gInstance = setting;
 }
 
 + (Setting *)loadSetting {

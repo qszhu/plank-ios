@@ -10,6 +10,9 @@
 @interface Setting : NSObject <NSCoding>
 @property(nonatomic) BOOL isNotificationOn;
 @property(strong, nonatomic) NSDate *notificationTime;
+@property(nonatomic) BOOL sendUsage;
+
++ (BOOL)sendUsage;
 
 + (void)saveSetting:(Setting *)setting;
 

@@ -21,7 +21,6 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
     [TestFlight takeOff:@"a8e05f04-c678-41c3-ad61-ee44cfe62431"];
 
     TimerViewController *timerVC = [[TimerViewController alloc] init];
@@ -36,7 +35,7 @@
 
     SettingViewController *settingVC = [[SettingViewController alloc] init];
     UINavigationController *settingNav = [[UINavigationController alloc] initWithRootViewController:settingVC];
-    settingNav.tabBarItem.title = @"Setting";
+    settingNav.tabBarItem.title = @"Settings";
     settingNav.tabBarItem.image = [UIImage imageNamed:@"first"];
 
     self.mainVC = [[MainViewController alloc] init];

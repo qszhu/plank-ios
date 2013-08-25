@@ -9,6 +9,7 @@
 #import "Setting.h"
 #import "FKFormMapping.h"
 #import "TestFlight.h"
+#import "Setting.h"
 
 @implementation SettingViewController {
 
@@ -21,7 +22,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [TestFlight passCheckpoint:@"setting view did appear"];
+    if ([Setting sendUsage]) {
+        [TestFlight passCheckpoint:@"setting view did appear"];
+    }
 }
 
 - (void)viewDidLoad {
@@ -37,6 +40,9 @@
         [formMapping sectionWithTitle:@"Notification" identifier:@"notification"];
         [formMapping mapAttribute:@"isNotificationOn" title:@"Notification" type:FKFormAttributeMappingTypeBoolean];
         [formMapping mapAttribute:@"notificationTime" title:@"Time" type:FKFormAttributeMappingTypeTime dateFormat:@"hh:mm a"];
+
+        [formMapping sectionWithTitle:@"Usage" identifier:@"usage"];
+        [formMapping mapAttribute:@"sendUsage" title:@"Send usage info" type:FKFormAttributeMappingTypeBoolean];
 
         [self.formModel registerMapping:formMapping];
     }];
