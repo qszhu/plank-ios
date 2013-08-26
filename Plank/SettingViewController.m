@@ -9,7 +9,6 @@
 #import "Setting.h"
 #import "FKFormMapping.h"
 #import "TestFlight.h"
-#import "Setting.h"
 
 @implementation SettingViewController {
 

@@ -19,7 +19,7 @@ static NSString *const kModelPath = @"model.setting";
 static Setting *gInstance = nil;
 
 + (Setting *)instance {
-    @synchronized(self) {
+    @synchronized (self) {
         if (gInstance == nil) {
             gInstance = [self loadSetting];
         }

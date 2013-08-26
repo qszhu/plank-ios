@@ -17,6 +17,7 @@
 @property(nonatomic) BOOL isTimerReady;
 @property(strong, nonatomic) NSTimer *timer;
 @property(strong, nonatomic) HistoryList *historyList;
+@property(nonatomic) NSUInteger oldHistoryCount;
 @end
 
 @implementation TimerViewController {
@@ -35,6 +36,7 @@
 
     [self setTitle:@"Timer"];
     self.historyList = [HistoryList loadHistoryList];
+    self.oldHistoryCount = self.historyList.count;
     self.elapsedMilliSeconds = 0;
     self.isTimerRunning = NO;
     self.isTimerReady = NO;
@@ -50,8 +52,7 @@
     }
 }
 
-- (void)handleProximityChange:(NSNotification *)notification
-{
+- (void)handleProximityChange:(NSNotification *)notification {
     BOOL close = [[UIDevice currentDevice] proximityState];
     NSLog(@"%s proximityState=%d", __FUNCTION__, close);
     if (close) {
@@ -95,6 +96,8 @@
     [self.historyList addHistory:[[History alloc] initWithDuration:self.elapsedMilliSeconds]];
 
     [HistoryList saveHistoryList:self.historyList];
+    [self.tabBarController.tabBar.items[1]
+            setBadgeValue:[NSString stringWithFormat:@"%i", self.historyList.count - self.oldHistoryCount]];
 
     self.elapsedMilliSeconds = 0;
     self.timerLabel.text = [Utils formatDuration:self.elapsedMilliSeconds];

@@ -33,6 +33,8 @@
     [self setTitle:@"History"];
     self.historyList = [HistoryList loadHistoryList];
     [self.tableView reloadData];
+
+    [self.tabBarController.tabBar.items[1] setBadgeValue:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
