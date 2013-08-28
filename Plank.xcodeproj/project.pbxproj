@@ -75,6 +75,8 @@
 		AC51AF1517CCF86500176627 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC51AF0B17CCF86500176627 /* Icon@2x.png */; };
 		AC51AF1617CCF86500176627 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = AC51AF0C17CCF86500176627 /* iTunesArtwork.png */; };
 		AC51AF1717CCF86500176627 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC51AF0D17CCF86500176627 /* iTunesArtwork@2x.png */; };
+		AC7EE78517CE3EC600CFC298 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7EE78317CE3EC600CFC298 /* TutorialViewController.m */; };
+		AC7EE78617CE3EC600CFC298 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7EE78417CE3EC600CFC298 /* TutorialViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +202,9 @@
 		AC51AF0B17CCF86500176627 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		AC51AF0C17CCF86500176627 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		AC51AF0D17CCF86500176627 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		AC7EE78217CE3EC600CFC298 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
+		AC7EE78317CE3EC600CFC298 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
+		AC7EE78417CE3EC600CFC298 /* TutorialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +344,9 @@
 				669C629F106F84C65CFDA627 /* ActionSheetPicker */,
 				669C67B8CA8D1E6B07304BF3 /* BWLongTextViewController */,
 				669C66BF53FA26E52C5CC0A2 /* BWSelectViewController */,
+				AC7EE78217CE3EC600CFC298 /* TutorialViewController.h */,
+				AC7EE78317CE3EC600CFC298 /* TutorialViewController.m */,
+				AC7EE78417CE3EC600CFC298 /* TutorialViewController.xib */,
 			);
 			path = Plank;
 			sourceTree = "<group>";
@@ -505,6 +513,7 @@
 				AC51AF1517CCF86500176627 /* Icon@2x.png in Resources */,
 				AC51AF1617CCF86500176627 /* iTunesArtwork.png in Resources */,
 				AC51AF1717CCF86500176627 /* iTunesArtwork@2x.png in Resources */,
+				AC7EE78617CE3EC600CFC298 /* TutorialViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -557,6 +566,7 @@
 				669C68BFD8B1DC4DE0B17F1E /* ActionSheetDistancePicker.m in Sources */,
 				669C66A2CA5AEF13334BB999 /* BWLongTextViewController.m in Sources */,
 				669C62253CE69903F2920323 /* BWSelectViewController.m in Sources */,
+				AC7EE78517CE3EC600CFC298 /* TutorialViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

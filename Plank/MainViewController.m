@@ -6,6 +6,7 @@
 
 #import "MainViewController.h"
 #import "Setting.h"
+#import "TutorialViewController.h"
 
 static NSString *const kHasAskedUsage = @"has_asked_usage";
 
@@ -14,6 +15,10 @@ static NSString *const kHasAskedUsage = @"has_asked_usage";
 
 - (void)viewDidLoad {
     [self askForUsage];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self presentViewController:[[TutorialViewController alloc] init] animated:NO completion:nil];
 }
 
 - (void)askForUsage {
