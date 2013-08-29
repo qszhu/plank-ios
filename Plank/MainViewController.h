@@ -7,5 +7,5 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MainViewController : UITabBarController <UIAlertViewDelegate>
+@interface MainViewController : UITabBarController
 @end

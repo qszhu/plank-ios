@@ -36,7 +36,7 @@ static Setting *gInstance = nil;
     if (self) {
         self.isNotificationOn = NO;
         self.notificationTime = [NSDate date];
-        self.sendUsage = NO;
+        self.sendUsage = YES;
     }
     return self;
 }
