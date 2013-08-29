@@ -11,4 +11,6 @@
 @interface TutorialViewController : UIViewController <UIScrollViewDelegate>
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, strong) IBOutlet UIButton *dismissButton;
+- (IBAction)dismissTutorial:(id)sender;
 @end

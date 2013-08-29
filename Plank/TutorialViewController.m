@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    NSArray *imageArray = [[NSArray alloc] initWithObjects:@"Icon-Small", @"Icon", @"Icon-72", nil];
+    NSArray *imageArray = [[NSArray alloc] initWithObjects:@"plank0", @"plank1", @"plank2", nil];
 
     for (int i = 0; i < imageArray.count; i++) {
         CGRect frame;
@@ -38,6 +38,11 @@
     CGFloat pageWidth = self.scrollView.frame.size.width;
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
+    [self.dismissButton setHidden:page != 2];
+}
+
+- (IBAction)dismissTutorial:(id)sender {
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 @end

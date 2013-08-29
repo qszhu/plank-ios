@@ -9,6 +9,7 @@
 #import "TutorialViewController.h"
 
 static NSString *const kHasAskedUsage = @"has_asked_usage";
+static NSString *const kHasShownTutorial = @"has_shown_tutorial";
 
 @implementation MainViewController {
 }
@@ -18,25 +19,22 @@ static NSString *const kHasAskedUsage = @"has_asked_usage";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self presentViewController:[[TutorialViewController alloc] init] animated:NO completion:nil];
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:kHasShownTutorial]) {
+        [self presentViewController:[[TutorialViewController alloc] init] animated:NO completion:nil];
+        [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:kHasShownTutorial];
+    }
 }
 
 - (void)askForUsage {
     if (![[NSUserDefaults standardUserDefaults] objectForKey:kHasAskedUsage]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Usage statistics"
-                                                        message:@"Send anonymous usage statistics to help us improve the application? You can change that later in Settings."
-                                                       delegate:self
-                                              cancelButtonTitle:@"No"
-                                              otherButtonTitles:@"Yes", nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Beta usage collection"
+                                                        message:@"This is a beta version. Anonymous usage statistics will be collected. You can turn it off in Settings."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
         [alert show];
         [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:kHasAskedUsage];
     }
-}
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    Setting *setting = [Setting loadSetting];
-    setting.sendUsage = buttonIndex != alertView.cancelButtonIndex;
-    [Setting saveSetting:setting];
 }
 
 @end
