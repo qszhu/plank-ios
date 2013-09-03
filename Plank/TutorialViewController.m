@@ -7,6 +7,8 @@
 //
 
 #import "TutorialViewController.h"
+#import "Setting.h"
+#import "TestFlight.h"
 
 @interface TutorialViewController ()
 
@@ -34,6 +36,13 @@
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * imageArray.count, self.scrollView.frame.size.height);
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([Setting sendUsage]) {
+        [TestFlight passCheckpoint:@"tutorial view did appear"];
+    }
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat pageWidth = self.scrollView.frame.size.width;
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
@@ -42,6 +51,9 @@
 }
 
 - (IBAction)dismissTutorial:(id)sender {
+    if ([Setting sendUsage]) {
+        [TestFlight passCheckpoint:@"dismiss tutorial"];
+    }
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

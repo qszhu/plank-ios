@@ -111,8 +111,8 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="493095489"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+					<int key="NSColorSpace">1</int>
+					<bytes key="NSRGB">MC45MTA0OTU5MjM5IDAuOTEwNDk1OTIzOSAwLjkxMDQ5NTkyMzkAA</bytes>
 				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
