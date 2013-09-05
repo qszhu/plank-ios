@@ -27,8 +27,8 @@ static NSString *const kHasShownTutorial = @"has_shown_tutorial";
 
 - (void)askForUsage {
     if (![[NSUserDefaults standardUserDefaults] objectForKey:kHasAskedUsage]) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Beta usage collection"
-                                                        message:@"This is a beta version. Anonymous usage statistics will be collected. You can turn it off in Settings."
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Beta Version Usage"
+                                                        message:@"Anonymous usage statistics is collected by default in beta versions. You can turn it off in Settings."
                                                        delegate:nil
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];

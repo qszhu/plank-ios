@@ -6,6 +6,7 @@
 
 #import "HistoryList.h"
 #import "Utils.h"
+#import "History.h"
 
 static NSString *const kHistory = @"history";
 static NSString *const kModelPath = @"history.model";
@@ -43,6 +44,19 @@ static NSString *const kModelPath = @"history.model";
 
 - (History *)historyAtIndex:(NSUInteger)index {
     return [self.history objectAtIndex:index];
+}
+
+- (History *)getBest {
+    __block History *res = nil;
+    __block NSInteger maxDuration = 0;
+    [self.history enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        History *history = obj;
+        if (history.duration > maxDuration) {
+            maxDuration = history.duration;
+            res = history;
+        }
+    }];
+    return res;
 }
 
 - (void)addHistory:(History *)history {

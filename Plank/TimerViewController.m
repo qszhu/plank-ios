@@ -17,6 +17,7 @@
 @property(nonatomic) BOOL isTimerReady;
 @property(strong, nonatomic) NSTimer *timer;
 @property(strong, nonatomic) HistoryList *historyList;
+@property(nonatomic) NSUInteger bestDuration;
 @property(nonatomic) NSUInteger oldHistoryCount;
 @end
 
@@ -40,6 +41,10 @@
     self.elapsedMilliSeconds = 0;
     self.isTimerRunning = NO;
     self.isTimerReady = NO;
+
+    History *bestHistory = [self.historyList getBest];
+    self.bestDuration = bestHistory == nil ? 0 : bestHistory.duration;
+    [self.bestScoreLabel setText:[Utils formatDuration:self.bestDuration]];
 
     UIDevice *device = [UIDevice currentDevice];
     device.proximityMonitoringEnabled = YES;
@@ -88,7 +93,14 @@
 
 - (void)onTimerTick {
     self.elapsedMilliSeconds += 10;
-    self.timerLabel.text = [Utils formatDuration:self.elapsedMilliSeconds];
+    NSString *scoreText = [Utils formatDuration:self.elapsedMilliSeconds];
+    self.timerLabel.text = scoreText;
+    if (self.elapsedMilliSeconds < self.bestDuration) {
+        self.timerLabel.textColor = [UIColor redColor];
+    } else {
+        self.timerLabel.textColor = [UIColor greenColor];
+        [self.bestScoreLabel setText:scoreText];
+    }
 }
 
 - (void)stopTimer {
@@ -101,6 +113,7 @@
 
     self.elapsedMilliSeconds = 0;
     self.timerLabel.text = [Utils formatDuration:self.elapsedMilliSeconds];
+    self.timerLabel.textColor = [UIColor blackColor];
 }
 
 - (IBAction)timerButtonPressed:(id)sender {
