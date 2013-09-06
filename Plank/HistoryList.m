@@ -46,6 +46,12 @@ static NSString *const kModelPath = @"history.model";
     return [self.history objectAtIndex:index];
 }
 
+- (void)removeHistoryAtIndex:(NSUInteger)index {
+    NSMutableArray *temp = [NSMutableArray arrayWithArray:self.history];
+    [temp removeObjectAtIndex:index];
+    self.history = [NSArray arrayWithArray:temp];
+}
+
 - (History *)getBest {
     __block History *res = nil;
     __block NSInteger maxDuration = 0;

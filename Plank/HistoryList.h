@@ -14,6 +14,8 @@
 
 - (History *)historyAtIndex:(NSUInteger)index;
 
+- (void)removeHistoryAtIndex:(NSUInteger)index;
+
 - (History *)getBest;
 
 - (void)addHistory:(History *)history;
