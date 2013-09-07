@@ -106,6 +106,7 @@
 - (void)stopTimer {
     [self.timer invalidate];
     [self.historyList addHistory:[[History alloc] initWithDuration:self.elapsedMilliSeconds]];
+    self.bestDuration = [self.historyList getBest].duration;
 
     [HistoryList saveHistoryList:self.historyList];
     [self.tabBarController.tabBar.items[1]

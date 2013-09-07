@@ -6,15 +6,19 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *const kIsNotificationOn = @"is_notification_on";
+static NSString *const kNotificationTime = @"notification_time";
+static NSString *const kSendUsage = @"send_usage";
 
-@interface Setting : NSObject <NSCoding>
-@property(nonatomic) BOOL isNotificationOn;
-@property(strong, nonatomic) NSDate *notificationTime;
-@property(nonatomic) BOOL sendUsage;
+@interface Setting : NSObject
+
++ (BOOL)notify;
++ (void)setNotify:(BOOL)notify;
+
++ (NSDate *)notificationTime;
++ (void)setNotificationTime:(NSDate *)notificationTime;
 
 + (BOOL)sendUsage;
++ (void)setSendUsage:(BOOL)sendUsage;
 
-+ (void)saveSetting:(Setting *)setting;
-
-+ (Setting *)loadSetting;
 @end

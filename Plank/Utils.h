@@ -16,4 +16,6 @@
 
 + (NSString *)formatDate:(NSDate *)date;
 
++ (NSString *)formatTime:(NSDate *)date;
+
 @end

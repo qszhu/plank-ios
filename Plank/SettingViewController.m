@@ -5,18 +5,13 @@
 
 
 #import "SettingViewController.h"
-#import "FKFormModel.h"
 #import "Setting.h"
-#import "FKFormMapping.h"
+#import "Utils.h"
+#import "TimePickerViewController.h"
 #import "TestFlight.h"
 
 @implementation SettingViewController {
 
-}
-
-- (id)init {
-    self = [super initWithStyle:UITableViewStyleGrouped];
-    return self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -24,33 +19,40 @@
     if ([Setting sendUsage]) {
         [TestFlight passCheckpoint:@"setting view did appear"];
     }
+
+    [self.notificationSwitch setOn:[Setting notify]];
+    [self.timeLabel setText:[Utils formatTime:[Setting notificationTime]]];
+    [self.sendUsageSwitch setOn:[Setting sendUsage]];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     [self.navigationItem setTitle:@"Settings"];
+}
 
-    self.formModel = [FKFormModel formTableModelForTableView:self.tableView
-                                        navigationController:self.navigationController];
-    self.setting = [Setting loadSetting];
+- (IBAction)sendUsageSwitched:(id)sender {
+    [Setting setSendUsage:[self.sendUsageSwitch isOn]];
+}
 
-    [FKFormMapping mappingForClass:[Setting class] block:^(FKFormMapping *formMapping) {
-        [formMapping sectionWithTitle:@"Notification" identifier:@"notification"];
-        [formMapping mapAttribute:@"isNotificationOn" title:@"Notification" type:FKFormAttributeMappingTypeBoolean];
-        [formMapping mapAttribute:@"notificationTime" title:@"Time" type:FKFormAttributeMappingTypeTime dateFormat:@"hh:mm a"];
+- (IBAction)notifySwitched:(id)sender {
+    [Setting setNotify:[self.notificationSwitch isOn]];
+    if ([Setting notify]) {
+        NSDate *notificationTime = [Setting notificationTime];
+        [Utils scheduleLocalNotificationAt:notificationTime alert:@"Time to exercise!"];
+        NSLog(@"notification set for %@", notificationTime);
+    } else {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        NSLog(@"cancel all notifications");
+    }
+}
 
-        [formMapping sectionWithTitle:@"Usage" identifier:@"usage"];
-        [formMapping mapAttribute:@"sendUsage" title:@"Send usage info" type:FKFormAttributeMappingTypeBoolean];
-
-        [self.formModel registerMapping:formMapping];
-    }];
-
-    [self.formModel setDidChangeValueWithBlock:^(id object, id value, NSString *keyPath) {
-        [Setting saveSetting:self.setting];
-    }];
-
-    [self.formModel loadFieldsWithObject:self.setting];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row == 1) {
+        TimePickerViewController *timePickerVC = [[TimePickerViewController alloc] init];
+        timePickerVC.settingViewController = self;
+        [self presentViewController:timePickerVC animated:YES completion:nil];
+    }
 }
 
 @end

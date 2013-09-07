@@ -7,10 +7,15 @@
 #import <Foundation/Foundation.h>
 
 @class Setting;
-@class FKFormModel;
 
 
 @interface SettingViewController : UITableViewController
-@property(strong, nonatomic) FKFormModel *formModel;
 @property(strong, nonatomic) Setting *setting;
+
+@property(strong, nonatomic) IBOutlet UISwitch *notificationSwitch;
+@property(strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property(strong, nonatomic) IBOutlet UISwitch *sendUsageSwitch;
+
+- (IBAction)notifySwitched:(id)sender;
+- (IBAction)sendUsageSwitched:(id)sender;
 @end

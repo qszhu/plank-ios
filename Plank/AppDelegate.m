@@ -12,6 +12,7 @@
 #import "HistoryViewController.h"
 #import "TimerViewController.h"
 #import "SettingViewController.h"
+#import "Setting.h"
 #import "TestFlight.h"
 
 @interface AppDelegate ()
@@ -23,6 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [TestFlight takeOff:@"a8e05f04-c678-41c3-ad61-ee44cfe62431"];
 
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{kSendUsage: @YES, kNotificationTime: [NSDate date]}];
+
     TimerViewController *timerVC = [[TimerViewController alloc] init];
     UINavigationController *timerNav = [[UINavigationController alloc] initWithRootViewController:timerVC];
     timerNav.tabBarItem.title = @"Timer";
@@ -33,7 +36,8 @@
     historyNav.tabBarItem.title = @"History";
     historyNav.tabBarItem.image = [UIImage imageNamed:@"second"];
 
-    SettingViewController *settingVC = [[SettingViewController alloc] init];
+    UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+    SettingViewController *settingVC = [settingsStoryboard instantiateInitialViewController];
     UINavigationController *settingNav = [[UINavigationController alloc] initWithRootViewController:settingVC];
     settingNav.tabBarItem.title = @"Settings";
     settingNav.tabBarItem.image = [UIImage imageNamed:@"first"];

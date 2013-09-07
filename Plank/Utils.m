@@ -39,4 +39,10 @@
                                           timeStyle:NSDateFormatterMediumStyle];
 }
 
++ (NSString *)formatTime:(NSDate *)date {
+    return [NSDateFormatter localizedStringFromDate:date
+                                          dateStyle:NSDateFormatterNoStyle
+                                          timeStyle:NSDateFormatterShortStyle];
+}
+
 @end
