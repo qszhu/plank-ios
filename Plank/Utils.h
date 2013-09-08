@@ -6,8 +6,6 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString * const kDidPickNotificationTimeNotification = @"DidPickNotificationTime";
-
 @interface Utils : NSObject
 + (void)scheduleLocalNotificationAt:(NSDate *)date alert:(NSString *)alert;
 

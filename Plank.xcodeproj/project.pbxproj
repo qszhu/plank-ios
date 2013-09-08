@@ -29,6 +29,8 @@
 		669C6E05A023E0CFC5CF3002 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 669C6BEFA3796F926DAD47B6 /* second.png */; };
 		669C6E15F70BF6AD6EFD599F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669C6F06839B1EF2817D6337 /* UIKit.framework */; };
 		669C6EB6895D9620098FCFEF /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669C6223366E799D6317C5B4 /* TimerView.xib */; };
+		AC2A1E8F17DC873400DB6091 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2A1E8317DC873400DB6091 /* AbstractActionSheetPicker.m */; };
+		AC2A1E9117DC873400DB6091 /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2A1E8817DC873400DB6091 /* ActionSheetDatePicker.m */; };
 		AC46F4D517C8939B00988C9E /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC46F4CF17C8939B00988C9E /* libTestFlight.a */; };
 		AC46F4D617C8939B00988C9E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AC46F4D017C8939B00988C9E /* README.md */; };
 		AC46F4D717C8939B00988C9E /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = AC46F4D117C8939B00988C9E /* release_notes.md */; };
@@ -49,8 +51,6 @@
 		AC7EE78517CE3EC600CFC298 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC7EE78317CE3EC600CFC298 /* TutorialViewController.m */; };
 		AC7EE78617CE3EC600CFC298 /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC7EE78417CE3EC600CFC298 /* TutorialView.xib */; };
 		AC8DD97E17DB1C80000AEA1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8DD97D17DB1C80000AEA1A /* Settings.storyboard */; };
-		AC8DD98117DB551A000AEA1A /* TimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC8DD98017DB551A000AEA1A /* TimePickerViewController.m */; };
-		AC8DD98317DB69AE000AEA1A /* TimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC8DD98217DB69AE000AEA1A /* TimePickerView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +88,10 @@
 		669C6F06839B1EF2817D6337 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		669C6F7BB1CCCA11A880D48E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		669C6FD284D3B0BD80D3F217 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC2A1E8217DC873400DB6091 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		AC2A1E8317DC873400DB6091 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		AC2A1E8717DC873400DB6091 /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		AC2A1E8817DC873400DB6091 /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
 		AC46F4CF17C8939B00988C9E /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		AC46F4D017C8939B00988C9E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		AC46F4D117C8939B00988C9E /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -112,9 +116,6 @@
 		AC7EE78317CE3EC600CFC298 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
 		AC7EE78417CE3EC600CFC298 /* TutorialView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
 		AC8DD97D17DB1C80000AEA1A /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
-		AC8DD97F17DB551A000AEA1A /* TimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerViewController.h; sourceTree = "<group>"; };
-		AC8DD98017DB551A000AEA1A /* TimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerViewController.m; sourceTree = "<group>"; };
-		AC8DD98217DB69AE000AEA1A /* TimePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,9 +173,6 @@
 				669C61E8337D5E2A5DC60033 /* SettingViewController.h */,
 				669C6D123F961CE86293BC4A /* SettingViewController.m */,
 				AC8DD97D17DB1C80000AEA1A /* Settings.storyboard */,
-				AC8DD97F17DB551A000AEA1A /* TimePickerViewController.h */,
-				AC8DD98017DB551A000AEA1A /* TimePickerViewController.m */,
-				AC8DD98217DB69AE000AEA1A /* TimePickerView.xib */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -230,6 +228,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC2A1E8117DC873400DB6091 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				AC2A1E8217DC873400DB6091 /* AbstractActionSheetPicker.h */,
+				AC2A1E8317DC873400DB6091 /* AbstractActionSheetPicker.m */,
+				AC2A1E8717DC873400DB6091 /* ActionSheetDatePicker.h */,
+				AC2A1E8817DC873400DB6091 /* ActionSheetDatePicker.m */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
 		AC46F4CE17C8939B00988C9E /* TestFlightSDK2.0.0 */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +255,7 @@
 		AC8DD97B17DB18CB000AEA1A /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				AC2A1E8117DC873400DB6091 /* Pickers */,
 				AC46F4CE17C8939B00988C9E /* TestFlightSDK2.0.0 */,
 			);
 			name = Vendor;
@@ -340,7 +350,6 @@
 				AC7B827817CFA3B700C445CC /* plank1.png in Resources */,
 				AC7B827917CFA3B700C445CC /* plank2.png in Resources */,
 				AC8DD97E17DB1C80000AEA1A /* Settings.storyboard in Resources */,
-				AC8DD98317DB69AE000AEA1A /* TimePickerView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,7 +371,8 @@
 				669C65CDD98C5BF761FCE643 /* Setting.m in Sources */,
 				669C64B17FAF52CF59444BDA /* SettingViewController.m in Sources */,
 				AC7EE78517CE3EC600CFC298 /* TutorialViewController.m in Sources */,
-				AC8DD98117DB551A000AEA1A /* TimePickerViewController.m in Sources */,
+				AC2A1E8F17DC873400DB6091 /* AbstractActionSheetPicker.m in Sources */,
+				AC2A1E9117DC873400DB6091 /* ActionSheetDatePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

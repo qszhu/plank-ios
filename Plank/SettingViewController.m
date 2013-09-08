@@ -7,7 +7,7 @@
 #import "SettingViewController.h"
 #import "Setting.h"
 #import "Utils.h"
-#import "TimePickerViewController.h"
+#import "ActionSheetDatePicker.h"
 #import "TestFlight.h"
 
 @implementation SettingViewController {
@@ -29,11 +29,6 @@
     [super viewDidLoad];
 
     [self.navigationItem setTitle:@"Settings"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didPickNotificationTime:) name:kDidPickNotificationTimeNotification object:nil];
-}
-
-- (void)didPickNotificationTime:(NSNotification *)notification {
-    [self.timeLabel setText:[Utils formatTime:[Setting notificationTime]]];
 }
 
 - (IBAction)sendUsageSwitched:(id)sender {
@@ -54,9 +49,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 1) {
-        TimePickerViewController *timePickerVC = [[TimePickerViewController alloc] init];
-        [self presentViewController:timePickerVC animated:YES completion:nil];
+        ActionSheetDatePicker *picker = [[ActionSheetDatePicker alloc] initWithTitle:@"Pick a time"
+                                                                      datePickerMode:UIDatePickerModeTime
+                                                                        selectedDate:[NSDate date]
+                                                                              target:self
+                                                                              action:@selector(timeSelected:element:)
+                                                                              origin:self.tableView];
+        [picker showActionSheetPicker];
     }
+}
+
+- (void)timeSelected:(NSDate *)selectedDate element:(id)element {
+    [Setting setNotificationTime:selectedDate];
+    [self.timeLabel setText:[Utils formatTime:[Setting notificationTime]]];
 }
 
 @end
