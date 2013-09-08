@@ -11,6 +11,8 @@
 #import "TestFlight.h"
 #import "Setting.h"
 
+static NSTimeInterval const kSensorSampleInterval = 0.5;
+
 @interface TimerViewController ()
 @property(nonatomic) NSUInteger elapsedMilliSeconds;
 @property(nonatomic) BOOL isTimerRunning;
@@ -19,6 +21,7 @@
 @property(strong, nonatomic) HistoryList *historyList;
 @property(nonatomic) NSUInteger bestDuration;
 @property(nonatomic) NSUInteger oldHistoryCount;
+@property(nonatomic) NSTimeInterval sensorLastSample;
 @end
 
 @implementation TimerViewController {
@@ -58,6 +61,11 @@
 }
 
 - (void)handleProximityChange:(NSNotification *)notification {
+    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+    if (now - self.sensorLastSample < kSensorSampleInterval) {
+        return;
+    }
+    self.sensorLastSample = now;
     BOOL close = [[UIDevice currentDevice] proximityState];
     NSLog(@"%s proximityState=%d", __FUNCTION__, close);
     if (close) {
