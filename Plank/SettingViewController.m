@@ -54,7 +54,7 @@
                                                                         selectedDate:[NSDate date]
                                                                               target:self
                                                                               action:@selector(timeSelected:element:)
-                                                                              origin:self.tableView];
+                                                                              origin:self.tabBarController.tabBar];
         [picker showActionSheetPicker];
     }
 }
