@@ -8,6 +8,7 @@
 
 #import "TimePickerViewController.h"
 #import "Setting.h"
+#import "Utils.h"
 #import "TestFlight.h"
 
 @interface TimePickerViewController ()
@@ -29,8 +30,7 @@
 - (IBAction)donePressed:(id)sender {
     [Setting setNotificationTime:[self.timePicker date]];
     [self dismissViewControllerAnimated:YES completion:^{
-        // TODO: use protocol
-        [self.settingViewController viewDidAppear:YES];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kDidPickNotificationTimeNotification object:self];
     }];
 }
 

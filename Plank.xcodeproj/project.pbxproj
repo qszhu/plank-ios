@@ -183,8 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				669C62E52AA656DAD4FA70DC /* Supporting Files */,
-				AC8DD97C17DB1AAE000AEA1A /* History */,
-				669C633452F4266E9C59932B /* Setting */,
 				669C65DF443CD9F0E9A22750 /* AppDelegate.h */,
 				669C67218ED9C68454704265 /* AppDelegate.m */,
 				669C6DDF724E38D9898B5F81 /* MainViewController.h */,
@@ -197,6 +195,8 @@
 				AC7EE78417CE3EC600CFC298 /* TutorialView.xib */,
 				669C6E111315E236961A1FC8 /* Utils.h */,
 				669C6197EA446B6CC62A61D2 /* Utils.m */,
+				AC8DD97C17DB1AAE000AEA1A /* History */,
+				669C633452F4266E9C59932B /* Setting */,
 			);
 			path = Plank;
 			sourceTree = "<group>";
