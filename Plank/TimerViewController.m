@@ -199,10 +199,24 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
     return msg;
 }
 
+- (NSString *)messageForCountDown {
+    NSInteger countDownSeconds = (self.bestDuration - self.elapsedMilliSeconds) / 1000;
+    if (countDownSeconds == 10) {
+        return @"10 seconds toyourrecord";
+    }
+    if (countDownSeconds >= 0 && countDownSeconds <= 7) {
+        return [NSString stringWithFormat:@"%d", countDownSeconds];
+    }
+    return @"";
+}
+
 - (void)announce {
-    NSString *text = [self messageForTime];
+    NSString *text = [self messageForCountDown];
     if ([text isEqual:@""]) {
-        return;
+        text = [self messageForTime];
+        if ([text isEqual:@""]) {
+            return;
+        }
     }
     NSLog(@"%@", text);
     [self.voicePlayer playText:text];
