@@ -22,6 +22,7 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
 @property(nonatomic) NSUInteger bestDuration;
 @property(nonatomic) NSUInteger oldHistoryCount;
 @property(nonatomic) NSTimeInterval sensorLastSample;
+@property(nonatomic) BOOL isSensorEnabled;
 @end
 
 @implementation TimerViewController {
@@ -49,15 +50,41 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
     self.bestDuration = bestHistory == nil ? 0 : bestHistory.duration;
     [self.bestScoreLabel setText:[Utils formatDuration:self.bestDuration]];
 
+    self.isSensorEnabled = [self enableSensor];
+    if (self.isSensorEnabled) {
+        [self startSensor];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    if (self.isSensorEnabled) {
+        [self stopSensor];
+        [self disableSensor];
+    }
+}
+
+- (BOOL)enableSensor {
     UIDevice *device = [UIDevice currentDevice];
     device.proximityMonitoringEnabled = YES;
-    if (device.isProximityMonitoringEnabled) {
-        [self.timerButton setHidden:YES];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(handleProximityChange:)
-                                                     name:UIDeviceProximityStateDidChangeNotification
-                                                   object:nil];
-    }
+    return device.isProximityMonitoringEnabled;
+}
+
+- (void)disableSensor {
+    UIDevice *device = [UIDevice currentDevice];
+    device.proximityMonitoringEnabled = NO;
+}
+
+- (void)stopSensor {
+    [self.timerButton setHidden:NO];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)startSensor {
+    [self.timerButton setHidden:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleProximityChange:)
+                                                 name:UIDeviceProximityStateDidChangeNotification
+                                               object:nil];
 }
 
 - (void)handleProximityChange:(NSNotification *)notification {
