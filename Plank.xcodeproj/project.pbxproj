@@ -82,6 +82,9 @@
 		AC58320017E5679D00FD4F28 /* 2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = AC5831DB17E5679D00FD4F28 /* 2.m4a */; };
 		AC58320317E5681900FD4F28 /* VoicePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AC58320217E5681900FD4F28 /* VoicePlayer.m */; };
 		AC58320517E581E800FD4F28 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC58320417E581E800FD4F28 /* AVFoundation.framework */; };
+		AC58320F17E5FB5500FD4F28 /* done.m4a in Resources */ = {isa = PBXBuildFile; fileRef = AC58320C17E5FB5100FD4F28 /* done.m4a */; };
+		AC58321017E5FB5500FD4F28 /* start.m4a in Resources */ = {isa = PBXBuildFile; fileRef = AC58320D17E5FB5300FD4F28 /* start.m4a */; };
+		AC58321117E5FB5500FD4F28 /* ready.m4a in Resources */ = {isa = PBXBuildFile; fileRef = AC58320E17E5FB5400FD4F28 /* ready.m4a */; };
 		AC7B827717CFA3B700C445CC /* plank0.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7B827417CFA3B700C445CC /* plank0.png */; };
 		AC7B827817CFA3B700C445CC /* plank1.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7B827517CFA3B700C445CC /* plank1.png */; };
 		AC7B827917CFA3B700C445CC /* plank2.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7B827617CFA3B700C445CC /* plank2.png */; };
@@ -184,6 +187,9 @@
 		AC58320117E5681900FD4F28 /* VoicePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoicePlayer.h; sourceTree = "<group>"; };
 		AC58320217E5681900FD4F28 /* VoicePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoicePlayer.m; sourceTree = "<group>"; };
 		AC58320417E581E800FD4F28 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AC58320C17E5FB5100FD4F28 /* done.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = done.m4a; sourceTree = "<group>"; };
+		AC58320D17E5FB5300FD4F28 /* start.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = start.m4a; sourceTree = "<group>"; };
+		AC58320E17E5FB5400FD4F28 /* ready.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ready.m4a; sourceTree = "<group>"; };
 		AC7B827417CFA3B700C445CC /* plank0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank0.png; sourceTree = "<group>"; };
 		AC7B827517CFA3B700C445CC /* plank1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank1.png; sourceTree = "<group>"; };
 		AC7B827617CFA3B700C445CC /* plank2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank2.png; sourceTree = "<group>"; };
@@ -363,12 +369,15 @@
 				AC5831BA17E5679D00FD4F28 /* 80.m4a */,
 				AC5831CA17E5679D00FD4F28 /* 90.m4a */,
 				AC5831B717E5679D00FD4F28 /* and.m4a */,
+				AC58320C17E5FB5100FD4F28 /* done.m4a */,
 				AC5831C217E5679D00FD4F28 /* hour.m4a */,
 				AC5831C317E5679D00FD4F28 /* hours.m4a */,
 				AC5831C617E5679D00FD4F28 /* minute.m4a */,
 				AC5831C717E5679D00FD4F28 /* minutes.m4a */,
+				AC58320E17E5FB5400FD4F28 /* ready.m4a */,
 				AC5831CC17E5679D00FD4F28 /* second.m4a */,
 				AC5831CD17E5679D00FD4F28 /* seconds.m4a */,
+				AC58320D17E5FB5300FD4F28 /* start.m4a */,
 				AC5831D817E5679D00FD4F28 /* to your record.m4a */,
 			);
 			path = voice;
@@ -507,6 +516,9 @@
 				AC5831FE17E5679D00FD4F28 /* 12.m4a in Resources */,
 				AC5831FF17E5679D00FD4F28 /* 20.m4a in Resources */,
 				AC58320017E5679D00FD4F28 /* 2.m4a in Resources */,
+				AC58320F17E5FB5500FD4F28 /* done.m4a in Resources */,
+				AC58321017E5FB5500FD4F28 /* start.m4a in Resources */,
+				AC58321117E5FB5500FD4F28 /* ready.m4a in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

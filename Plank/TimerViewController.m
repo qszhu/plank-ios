@@ -111,11 +111,13 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
             self.isTimerRunning = NO;
             self.isTimerReady = NO;
             [self stopTimer];
+            [self.voicePlayer playText:@"done"];
         } else {
             if ([Setting sendUsage]) {
                 [TestFlight passCheckpoint:@"censor timer ready"];
             }
             self.isTimerReady = YES;
+            [self.voicePlayer playText:@"ready"];
         }
     } else if (self.isTimerReady && !self.isTimerRunning) {
         if ([Setting sendUsage]) {
@@ -123,6 +125,7 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
         }
         self.isTimerRunning = YES;
         [self startTimer];
+        [self.voicePlayer playText:@"start"];
     }
 }
 
