@@ -53,6 +53,7 @@
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     NSLog(@"received local notification");
+    [application cancelLocalNotification:notification];
     [self.mainVC setSelectedIndex:0];
 }
 
