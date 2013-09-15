@@ -8,8 +8,9 @@
 #import "Utils.h"
 #import "HistoryList.h"
 #import "History.h"
-#import "TestFlight.h"
 #import "Setting.h"
+#import "VoicePlayer.h"
+#import "TestFlight.h"
 
 static NSTimeInterval const kSensorSampleInterval = 0.5;
 
@@ -23,9 +24,16 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
 @property(nonatomic) NSUInteger oldHistoryCount;
 @property(nonatomic) NSTimeInterval sensorLastSample;
 @property(nonatomic) BOOL isSensorEnabled;
+@property(strong, nonatomic) VoicePlayer *voicePlayer;
 @end
 
 @implementation TimerViewController {
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.voicePlayer = [[VoicePlayer alloc] init];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -136,6 +144,9 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
         self.timerLabel.textColor = [UIColor greenColor];
         [self.bestScoreLabel setText:scoreText];
     }
+    if (self.elapsedMilliSeconds % 1000 == 0) {
+        [self announce];
+    }
 }
 
 - (void)stopTimer {
@@ -164,6 +175,34 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
     } else {
         [self stopTimer];
     }
+}
+
+- (NSString *)messageForTime {
+    NSString *msg = @"";
+    NSUInteger minutes = self.elapsedMilliSeconds / 1000 % 3600 / 60;
+    NSUInteger seconds = self.elapsedMilliSeconds / 1000 % 60;
+    if (seconds % 10 != 0) {
+        return msg;
+    }
+    if (minutes > 0) {
+        msg = [msg stringByAppendingFormat:@"%d %@", minutes, minutes == 1 ? @"minute" : @"minutes"];
+    }
+    if (seconds > 0) {
+        if (minutes > 0) {
+            msg = [msg stringByAppendingString:@" and "];
+        }
+        msg = [msg stringByAppendingFormat:@"%d seconds", seconds];
+    }
+    return msg;
+}
+
+- (void)announce {
+    NSString *text = [self messageForTime];
+    if ([text isEqual:@""]) {
+        return;
+    }
+    NSLog(@"%@", text);
+    [self.voicePlayer playText:text];
 }
 
 @end
