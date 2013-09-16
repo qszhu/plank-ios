@@ -69,6 +69,7 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
         [self stopSensor];
         [self disableSensor];
     }
+    [self cancelTimer];
 }
 
 - (BOOL)enableSensor {
@@ -108,9 +109,9 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
             if ([Setting sendUsage]) {
                 [TestFlight passCheckpoint:@"censor stop timer"];
             }
-            self.isTimerRunning = NO;
-            self.isTimerReady = NO;
             [self stopTimer];
+            [self saveScore];
+            [self clearTimer];
             [self.voicePlayer playText:@"done"];
         } else {
             if ([Setting sendUsage]) {
@@ -123,7 +124,6 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
         if ([Setting sendUsage]) {
             [TestFlight passCheckpoint:@"censor start timer"];
         }
-        self.isTimerRunning = YES;
         [self startTimer];
         [self.voicePlayer playText:@"start"];
     }
@@ -135,6 +135,7 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
                                                 selector:@selector(onTimerTick)
                                                 userInfo:nil
                                                  repeats:YES];
+    self.isTimerRunning = YES;
 }
 
 - (void)onTimerTick {
@@ -154,16 +155,29 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
 
 - (void)stopTimer {
     [self.timer invalidate];
+    self.isTimerRunning = NO;
+    self.isTimerReady = NO;
+}
+
+- (void)saveScore {
     [self.historyList addHistory:[[History alloc] initWithDuration:self.elapsedMilliSeconds]];
     self.bestDuration = [self.historyList getBest].duration;
 
     [HistoryList saveHistoryList:self.historyList];
     [self.tabBarController.tabBar.items[1]
             setBadgeValue:[NSString stringWithFormat:@"%i", self.historyList.count - self.oldHistoryCount]];
+}
 
+- (void)clearTimer {
     self.elapsedMilliSeconds = 0;
     self.timerLabel.text = [Utils formatDuration:self.elapsedMilliSeconds];
     self.timerLabel.textColor = [UIColor blackColor];
+    [self.timerButton setTitle:self.isTimerRunning ? @"Stop" : @"Start" forState:UIControlStateNormal];
+}
+
+- (void)cancelTimer {
+    [self stopTimer];
+    [self clearTimer];
 }
 
 - (IBAction)timerButtonPressed:(id)sender {
@@ -171,12 +185,13 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
         [TestFlight passCheckpoint:@"timer button pressed"];
     }
     self.isTimerRunning = !self.isTimerRunning;
-    NSString *title = self.isTimerRunning ? @"Stop" : @"Start";
-    [self.timerButton setTitle:title forState:UIControlStateNormal];
+    [self.timerButton setTitle:self.isTimerRunning ? @"Stop" : @"Start" forState:UIControlStateNormal];
     if (self.isTimerRunning) {
         [self startTimer];
     } else {
         [self stopTimer];
+        [self saveScore];
+        [self clearTimer];
     }
 }
 
