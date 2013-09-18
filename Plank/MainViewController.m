@@ -6,7 +6,7 @@
 
 #import "MainViewController.h"
 #import "Setting.h"
-#import "TutorialViewController.h"
+#import "TestFlight.h"
 
 static NSString *const kHasAskedUsage = @"has_asked_usage";
 static NSString *const kHasShownTutorial = @"has_shown_tutorial";
@@ -20,8 +20,24 @@ static NSString *const kHasShownTutorial = @"has_shown_tutorial";
 
 - (void)viewDidAppear:(BOOL)animated {
     if (![[NSUserDefaults standardUserDefaults] objectForKey:kHasShownTutorial]) {
-        [self presentViewController:[[TutorialViewController alloc] init] animated:NO completion:nil];
+        MYIntroductionPanel *panel1 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"plank0"] title:@"Ready" description:@"Approach the device until you hear ready."];
+        MYIntroductionPanel *panel2 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"plank1"] title:@"Start" description:@"Leave the device far enough to start timing."];
+        MYIntroductionPanel *panel3 = [[MYIntroductionPanel alloc] initWithimage:[UIImage imageNamed:@"plank2"] title:@"Done" description:@"Approach the device again to stop timing"];
+        MYIntroductionView *introductionView = [[MYIntroductionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+                                                                             headerImage:nil
+                                                                                  panels:@[panel1, panel2, panel3]];
+        [introductionView setBackgroundColor:[UIColor colorWithRed:37.0/255 green:104.0/255 blue:154.0/255 alpha:1.0]];
+        introductionView.delegate = self;
+        [introductionView showInView:self.view animateDuration:0];
         [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:kHasShownTutorial];
+    }
+}
+
+-(void)introductionDidFinishWithType:(MYFinishType)finishType{
+    if (finishType == MYFinishTypeSkipButton) {
+        [TestFlight passCheckpoint:@"skipped tutorial"];
+    } else if (finishType == MYFinishTypeSwipeOut){
+        [TestFlight passCheckpoint:@"finished tutorial"];
     }
 }
 

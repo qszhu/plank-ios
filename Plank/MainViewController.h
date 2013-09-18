@@ -5,7 +5,7 @@
 
 
 #import <Foundation/Foundation.h>
+#import "MYIntroductionView.h"
 
-
-@interface MainViewController : UITabBarController
+@interface MainViewController : UITabBarController <MYIntroductionDelegate>
 @end
