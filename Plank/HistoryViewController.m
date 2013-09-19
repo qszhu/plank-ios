@@ -7,9 +7,10 @@
 #import "HistoryViewController.h"
 #import "HistoryList.h"
 #import "History.h"
+#import "HistoryChartViewController.h"
 #import "Utils.h"
-#import "TestFlight.h"
 #import "Setting.h"
+#import "TestFlight.h"
 
 @interface HistoryViewController ()
 @property(strong, nonatomic) HistoryList *historyList;
@@ -35,6 +36,14 @@
     [self.tableView reloadData];
 
     [self.tabBarController.tabBar.items[1] setBadgeValue:nil];
+
+    UIBarButtonItem *btn = [[UIBarButtonItem alloc] initWithTitle:@"Chart" style:UIBarButtonItemStyleBordered target:self action:@selector(viewChart)];
+    self.navigationItem.rightBarButtonItem = btn;
+}
+
+- (void)viewChart {
+    HistoryChartViewController *vc = [HistoryChartViewController new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

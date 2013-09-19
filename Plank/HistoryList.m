@@ -46,6 +46,21 @@ static NSString *const kModelPath = @"history.model";
     return [self.history objectAtIndex:index];
 }
 
+- (History *)historyAtDate:(NSDate *)date {
+    History *res = nil;
+    NSInteger maxDuration = 0;
+    for (NSUInteger i = 0; i < [self count]; i++) {
+        History *history = [self historyAtIndex:i];
+        if ([Utils sameDay:date fromDate:history.date]) {
+            if (history.duration > maxDuration) {
+                maxDuration = history.duration;
+                res = history;
+            }
+        }
+    }
+    return res;
+}
+
 - (void)removeHistoryAtIndex:(NSUInteger)index {
     NSMutableArray *temp = [NSMutableArray arrayWithArray:self.history];
     [temp removeObjectAtIndex:index];

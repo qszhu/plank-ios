@@ -29,6 +29,7 @@
 		669C6E05A023E0CFC5CF3002 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 669C6BEFA3796F926DAD47B6 /* second.png */; };
 		669C6E15F70BF6AD6EFD599F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669C6F06839B1EF2817D6337 /* UIKit.framework */; };
 		669C6EB6895D9620098FCFEF /* TimerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 669C6223366E799D6317C5B4 /* TimerView.xib */; };
+		AC3DB9C417EB573E00AE62E6 /* HistoryChartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC3DB9C317EB573E00AE62E6 /* HistoryChartViewController.m */; };
 		AC5831DC17E5679D00FD4F28 /* and.m4a in Resources */ = {isa = PBXBuildFile; fileRef = AC5831B717E5679D00FD4F28 /* and.m4a */; };
 		AC5831DD17E5679D00FD4F28 /* 8.m4a in Resources */ = {isa = PBXBuildFile; fileRef = AC5831B817E5679D00FD4F28 /* 8.m4a */; };
 		AC5831DE17E5679D00FD4F28 /* 18.m4a in Resources */ = {isa = PBXBuildFile; fileRef = AC5831B917E5679D00FD4F28 /* 18.m4a */; };
@@ -123,6 +124,8 @@
 		669C6F06839B1EF2817D6337 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		669C6F7BB1CCCA11A880D48E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		669C6FD284D3B0BD80D3F217 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AC3DB9C217EB573E00AE62E6 /* HistoryChartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryChartViewController.h; sourceTree = "<group>"; };
+		AC3DB9C317EB573E00AE62E6 /* HistoryChartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryChartViewController.m; sourceTree = "<group>"; };
 		AC5831B717E5679D00FD4F28 /* and.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = and.m4a; sourceTree = "<group>"; };
 		AC5831B817E5679D00FD4F28 /* 8.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 8.m4a; sourceTree = "<group>"; };
 		AC5831B917E5679D00FD4F28 /* 18.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 18.m4a; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 				669C680067347C26E9F149AB /* HistoryList.m */,
 				669C6C6467C59DAAA7566946 /* HistoryViewController.h */,
 				669C69B345671C95F9BC09EB /* HistoryViewController.m */,
+				AC3DB9C217EB573E00AE62E6 /* HistoryChartViewController.h */,
+				AC3DB9C317EB573E00AE62E6 /* HistoryChartViewController.m */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				669C65CDD98C5BF761FCE643 /* Setting.m in Sources */,
 				669C64B17FAF52CF59444BDA /* SettingViewController.m in Sources */,
 				AC58320317E5681900FD4F28 /* VoicePlayer.m in Sources */,
+				AC3DB9C417EB573E00AE62E6 /* HistoryChartViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
