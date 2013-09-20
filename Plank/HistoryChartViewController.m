@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self.view addSubview:[self createHistoryChart]];
     [self setTitle:@"History Chart"];
 }
@@ -52,6 +53,9 @@
     LineChartView *chartView = [[LineChartView alloc] initWithFrame:rect];
     chartView.yMin = 0;
     chartView.yMax = [historyList getBest].duration * 1.5;
+    if (chartView.yMax == 0) {
+        chartView.yMax = 1;
+    }
     chartView.data = @[d];
 
     return chartView;
