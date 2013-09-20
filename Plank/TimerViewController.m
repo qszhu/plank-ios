@@ -33,6 +33,7 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.voicePlayer = [[VoicePlayer alloc] init];
 }
 
