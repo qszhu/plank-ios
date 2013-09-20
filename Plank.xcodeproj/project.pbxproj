@@ -74,6 +74,7 @@
 		AC7B827817CFA3B700C445CC /* plank1.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7B827517CFA3B700C445CC /* plank1.png */; };
 		AC7B827917CFA3B700C445CC /* plank2.png in Resources */ = {isa = PBXBuildFile; fileRef = AC7B827617CFA3B700C445CC /* plank2.png */; };
 		AC8DD97E17DB1C80000AEA1A /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC8DD97D17DB1C80000AEA1A /* Settings.storyboard */; };
+		ACB87C3517EC85F200F9F3B3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACB87C3417EC85F200F9F3B3 /* Social.framework */; };
 		ACEC38DE17EA0F1200110798 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACEC38D417EA0F1200110798 /* iTunesArtwork@2x.png */; };
 		ACEC38DF17EA0F1200110798 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = ACEC38D517EA0F1200110798 /* iTunesArtwork.png */; };
 		ACEC38E017EA0F1200110798 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACEC38D617EA0F1200110798 /* Icon-72@2x.png */; };
@@ -171,6 +172,7 @@
 		AC7B827517CFA3B700C445CC /* plank1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank1.png; sourceTree = "<group>"; };
 		AC7B827617CFA3B700C445CC /* plank2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plank2.png; sourceTree = "<group>"; };
 		AC8DD97D17DB1C80000AEA1A /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		ACB87C3417EC85F200F9F3B3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		ACEC38D417EA0F1200110798 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		ACEC38D517EA0F1200110798 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		ACEC38D617EA0F1200110798 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACB87C3517EC85F200F9F3B3 /* Social.framework in Frameworks */,
 				ACEC38E917EA0F9400110798 /* AVFoundation.framework in Frameworks */,
 				669C6E15F70BF6AD6EFD599F /* UIKit.framework in Frameworks */,
 				669C67F03581D54B16A4F583 /* Foundation.framework in Frameworks */,
@@ -287,6 +290,7 @@
 		669C6C9F6311837A7A77E784 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACB87C3417EC85F200F9F3B3 /* Social.framework */,
 				ACEC38E817EA0F9400110798 /* AVFoundation.framework */,
 				669C6F06839B1EF2817D6337 /* UIKit.framework */,
 				669C65208C240A7B6D880517 /* Foundation.framework */,

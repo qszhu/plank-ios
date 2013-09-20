@@ -10,6 +10,7 @@
 #import "HistoryChartViewController.h"
 #import "Utils.h"
 #import "Setting.h"
+#import "Social/Social.h"
 #import "TestFlight.h"
 
 @interface HistoryViewController ()
@@ -68,6 +69,15 @@
         [self.historyList removeHistoryAtIndex:indexPath.row];
         [HistoryList saveHistoryList:self.historyList];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeSinaWeibo]) {
+        SLComposeViewController *vc = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeSinaWeibo];
+        History *history = [self.historyList historyAtIndex:(NSUInteger) indexPath.row];
+        [vc setInitialText:[NSString stringWithFormat:@"I planked for %@ minutes! Can you beat me?", [Utils formatDuration:history.duration]]];
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 
