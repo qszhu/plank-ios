@@ -10,21 +10,21 @@
 #import "AVFoundation/AVFoundation.h"
 
 @interface VoicePlayer()
-@property (strong, nonatomic) AVQueuePlayer *player;
+@property (strong, nonatomic) AVSpeechSynthesizer *synth;
 @end
 
 @implementation VoicePlayer
 
-- (void)playText:(NSString *)text {
-    NSMutableArray *items = [[NSMutableArray alloc] init];
-    for (NSString *word in [text componentsSeparatedByString:@" "]) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:word ofType:@"m4a"];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:url];
-        [items addObject:item];
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.synth = [AVSpeechSynthesizer new];
     }
-    self.player = [AVQueuePlayer queuePlayerWithItems:items];
-    [self.player play];
+    return self;
+}
+- (void)playText:(NSString *)text {
+    AVSpeechUtterance *utterance = [AVSpeechUtterance speechUtteranceWithString:text];
+    [self.synth speakUtterance:utterance];
 }
 
 @end

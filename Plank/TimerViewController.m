@@ -218,9 +218,9 @@ static NSTimeInterval const kSensorSampleInterval = 0.5;
 - (NSString *)messageForCountDown {
     NSInteger countDownSeconds = (self.bestDuration - self.elapsedMilliSeconds) / 1000;
     if (countDownSeconds == 10) {
-        return @"10 seconds toyourrecord";
+        return @"10 seconds to your record";
     }
-    if (countDownSeconds >= 0 && countDownSeconds <= 7) {
+    if (countDownSeconds >= 0 && countDownSeconds <= 8) {
         return [NSString stringWithFormat:@"%d", countDownSeconds];
     }
     return @"";

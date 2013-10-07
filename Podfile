@@ -1,4 +1,4 @@
-platform :ios, '6.0'
+platform :ios, '7.0'
 pod 'TestFlightSDK', '~> 2.0'
 pod 'ActionSheetPicker', '~> 0.0'
 pod 'MYIntroduction', :git => 'https://github.com/MatthewYork/iPhone-IntroductionTutorial.git'
