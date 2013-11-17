@@ -10,7 +10,7 @@
 #import "History.h"
 #import "HistoryList.h"
 #import "Utils.h"
-#import "LineChartView.h"
+#import "LCLineChartView.h"
 
 @interface HistoryChartViewController ()
 
@@ -26,10 +26,10 @@
     [self setTitle:@"History Chart"];
 }
 
-- (LineChartView *)createHistoryChart {
+- (LCLineChartView *)createHistoryChart {
     HistoryList *historyList = [HistoryList loadHistoryList];
 
-    LineChartData *d = [LineChartData new];
+    LCLineChartData *d = [LCLineChartData new];
     d.xMin = 1;
     d.xMax = 31;
     d.title = @"Plank duration in 1 month";
@@ -44,13 +44,13 @@
         float y = history == nil ? 0 : history.duration;
         NSString *labelX = [Utils formatDate:history.date];
         NSString *labelY = [Utils formatDuration:history.duration];
-        return [LineChartDataItem dataItemWithX:x y:y xLabel:labelX dataLabel:labelY];
+        return [LCLineChartDataItem dataItemWithX:x y:y xLabel:labelX dataLabel:labelY];
     };
 
     CGRect rect = CGRectMake(0, 0, self.view.frame.size.width,
                              self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height
                              - self.navigationController.navigationBar.frame.size.height);
-    LineChartView *chartView = [[LineChartView alloc] initWithFrame:rect];
+    LCLineChartView *chartView = [[LCLineChartView alloc] initWithFrame:rect];
     chartView.yMin = 0;
     chartView.yMax = [historyList getBest].duration * 1.5;
     if (chartView.yMax == 0) {
